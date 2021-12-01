@@ -28,6 +28,17 @@ module Day1
         return counter
     end
 
+    """
+        three_sum(x)
+    
+    Reduce the array to entries corresponding to the sum of 3 following values
+
+    # Examples
+    ```julia-repl
+    julia> three_sum([1, 2, 2, 4])
+    [5, 8]
+    ```
+    """ 
     function three_sum(input)
         new_input = []
         for x in 1:length(input)-2
@@ -36,6 +47,17 @@ module Day1
         return new_input
     end
 
+    """
+    count_three_sum_increasing(x)
+
+    Count the number of times the sum of values in a sliding window of 3 increases from the previous sum.
+
+    # Examples
+    ```julia-repl
+    julia> count_three_sum_increasing([1, 2, 2, 4])
+    1
+    ```
+    """ 
     function count_three_sum_increasing(input)
         return count_increasing(three_sum(input))  
     end
