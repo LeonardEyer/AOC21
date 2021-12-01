@@ -1,4 +1,4 @@
-module Day1
-    include("Day 1/forloop.jl")
-    export forLoop
+module AOC21
+    include("Day 1/main.jl")
+    export Day1
 end
