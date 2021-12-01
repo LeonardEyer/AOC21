@@ -1,5 +1,4 @@
 module forLoop
-
     export count_increasing
     
     function count_increasing(input)
@@ -13,5 +12,4 @@ module forLoop
         end
         return counter
     end
-
 end
