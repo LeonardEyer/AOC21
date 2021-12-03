@@ -20,13 +20,13 @@ using Test
     @testset "Day2" begin
         input = ["forward 5" "down 5" "forward 8" "up 3" "down 8" "forward 2"]
         result_1 = 150
-        result_2 = 200
+        result_2 = 900
 
         @testset "Part 1" begin
             @test AOC21.Day2.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day2.part2(input) == result_2
+            @test AOC21.Day2.part2(input) == result_2
         end
     end
 
