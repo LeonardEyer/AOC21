@@ -1,4 +1,4 @@
-https://adventofcode.com/2021/day/2/inputforward 7
+forward 7
 forward 9
 forward 3
 down 5
