@@ -34,7 +34,6 @@ module Day2
                 aim -= x[2]
             end
         end
-        println(horizontal, ", " , depth)
         return horizontal * depth
     end
 end
