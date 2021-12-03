@@ -1,7 +1,4 @@
 module Day1
-    export count_increasing
-    export count_three_sum_increasing
-    
     """
         count_increasing(x)
 
@@ -60,5 +57,12 @@ module Day1
     """ 
     function count_three_sum_increasing(input)
         return count_increasing(three_sum(input))  
+    end
+
+    function part1(input)
+        return count_increasing(input)
+    end
+    function part2(input)
+        return count_three_sum_increasing(input)
     end
 end
