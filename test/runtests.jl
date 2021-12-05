@@ -42,4 +42,17 @@ using Test
             @test AOC21.Day3.part2(input) == result_2
         end
     end
+
+    @testset "Day4" begin
+        input = []
+        result_1 = 0
+        result_2 = 0
+
+        @testset "Part 1" begin
+            #@test AOC21.Day4.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day4.part2(input) == result_2
+        end
+    end
 end
