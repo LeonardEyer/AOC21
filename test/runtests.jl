@@ -33,7 +33,7 @@ using Test
     @testset "Day3" begin
         input = ["00100" "11110" "10110" "10111" "10101" "01111" "00111" "11100" "10000" "11001" "00010" "01010"]
         result_1 = 198
-        result_2 = -1
+        result_2 = 230
 
         @testset "Part 1" begin
             @test AOC21.Day3.part1(input) == result_1
