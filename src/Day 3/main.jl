@@ -36,7 +36,7 @@ module Day3
         return result
     end
 
-    function seivewithcond(cond, s)
+    function seive_with_cond(cond, s)
         # Iterate over all bits
         for i = 1:size(s, 1)
             if size(s, 2) == 1
@@ -59,8 +59,8 @@ module Day3
         s = binary_to_matrix(input)
 
         # Allocate output
-        a = seivewithcond((x) -> mean(x, dims=2) .>= 0.5, s)
-        b = seivewithcond((x) -> mean(x, dims=2) .< 0.5, s)
+        a = seive_with_cond((x) -> mean(x, dims=2) .>= 0.5, s)
+        b = seive_with_cond((x) -> mean(x, dims=2) .< 0.5, s)
 
         return bitarr_to_int(a) * bitarr_to_int(b)
     end
