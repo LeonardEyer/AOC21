@@ -9,6 +9,7 @@ module Day4
 
         return bingo
     end
+
     function parse_input(input)
         a = filter(x -> length(x) > 0, split(input, "\n"))
         draworder = map(x -> parse(Int, x), split(a[1], ","))
@@ -25,9 +26,11 @@ module Day4
 
     function part1(input)
         order, boards = parse_input(input)
+
     end
 
     function part2(input)
         order, boards = parse_input(input)
+        
     end
 end
