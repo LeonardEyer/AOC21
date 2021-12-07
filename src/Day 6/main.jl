@@ -1,7 +1,22 @@
 module Day6
+
     function parse_input(input)
-        fish = map(x -> parse(Int, x), split(input, ","))
-        return fish
+        return map(x -> parse(Int, x), split(input, ","))
+    end
+
+    function generate_histogram(fish)
+        fish_histogram = zeros(Int, 9)
+        for x in fish
+            fish_histogram[x + 1] += 1
+        end
+        return fish_histogram
+    end
+
+    function run_epoch_histogram(fish_histogram)
+        fish_histogram = circshift(fish_histogram, -1)
+        fish_histogram[7] += fish_histogram[9]
+
+        return fish_histogram
     end
 
     function run_epoch(fish)
@@ -10,10 +25,6 @@ module Day6
         fish[mask_new_fish] .= 6
         new_fish = ones(Int, count(mask_new_fish)) * 8
         return vcat(fish, new_fish)
-    end
-
-    function run_epochs(fish, n_epochs)
-        return 6 - ((n_epochs) % 7)
     end
 
     function part1(input)
@@ -29,14 +40,14 @@ module Day6
     end
 
     function part2(input)
-        fish = parse_input(input)
+        fish_histogram = generate_histogram(parse_input(input))
 
         n_days = 256
 
         for i = 1:n_days
-            fish = run_epoch(fish)
+            fish_histogram = run_epoch_histogram(fish_histogram)
         end
 
-        return length(fish)
+        return sum(fish_histogram)
     end
 end
