@@ -98,12 +98,12 @@ using Test
     end
 
     @testset "Day6" begin
-        input = ""
-        result_1 = 0
-        result_2 = 0
+        input = "3,4,3,1,2"
+        result_1 = 5934
+        result_2 = 26984457539
 
         @testset "Part 1" begin
-            #@test AOC21.Day6.part1(input) == result_1
+            @test AOC21.Day6.part1(input) == result_1
         end
         @testset "Part 2" begin
             #@test AOC21.Day6.part2(input) == result_2
