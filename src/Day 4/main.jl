@@ -80,8 +80,8 @@ module Day4
         order, boards = parse_input(input)
 
         for v in order
-            map(x -> mark!(x, v), boards)
             for (i, b) in enumerate(boards)
+                mark!(b, v)
                 if has_won(b) 
                     if length(boards) == 1
                         return v * sum_all_unmarked(b)
