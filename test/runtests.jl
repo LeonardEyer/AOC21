@@ -74,4 +74,43 @@ using Test
             #@test AOC21.Day4.part2(input) == result_2
         end
     end
+
+    @testset "Day5" begin
+        input = ""
+        result_1 = 0
+        result_2 = 0
+
+        @testset "Part 1" begin
+            #@test AOC21.Day5.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day5.part2(input) == result_2
+        end
+    end
+
+    @testset "Day6" begin
+        input = ""
+        result_1 = 0
+        result_2 = 0
+
+        @testset "Part 1" begin
+            #@test AOC21.Day6.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day6.part2(input) == result_2
+        end
+    end
+
+    @testset "Day7" begin
+        input = ""
+        result_1 = 0
+        result_2 = 0
+
+        @testset "Part 1" begin
+            #@test AOC21.Day7.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day7.part2(input) == result_2
+        end
+    end
 end
