@@ -76,15 +76,24 @@ using Test
     end
 
     @testset "Day5" begin
-        input = ""
-        result_1 = 0
-        result_2 = 0
+        input = "0,9 -> 5,9
+        8,0 -> 0,8
+        9,4 -> 3,4
+        2,2 -> 2,1
+        7,0 -> 7,4
+        6,4 -> 2,0
+        0,9 -> 2,9
+        3,4 -> 1,4
+        0,0 -> 8,8
+        5,5 -> 8,2"
+        result_1 = 5
+        result_2 = 12
 
         @testset "Part 1" begin
-            #@test AOC21.Day5.part1(input) == result_1
+            @test AOC21.Day5.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day5.part2(input) == result_2
+            @test AOC21.Day5.part2(input) == result_2
         end
     end
 
