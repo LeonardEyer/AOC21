@@ -7,6 +7,11 @@ module Day4
         markers :: BitMatrix
     end
 
+    function display(board::BingoBoard)
+        display(board.board)
+        display(board.markers)
+    end
+
     function has_won(board::BingoBoard)
         horizontal = mapslices(sum, board.markers, dims = [1])[:]
         vertical = mapslices(sum, board.markers, dims = [2])[:]
@@ -73,6 +78,17 @@ module Day4
 
     function part2(input)
         order, boards = parse_input(input)
-        
+
+        for v in order
+            map(x -> mark!(x, v), boards)
+            for (i, b) in enumerate(boards)
+                if has_won(b) 
+                    if length(boards) == 1
+                        return v * sum_all_unmarked(b)
+                    end
+                    deleteat!(boards, i)
+                end
+            end
+        end
     end
 end
