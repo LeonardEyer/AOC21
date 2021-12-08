@@ -113,7 +113,7 @@ using Test
     @testset "Day7" begin
         input = "16,1,2,0,4,2,7,1,2,14"
         result_1 = 37
-        result_2 = 5
+        result_2 = 168
 
         @testset "Part 1" begin
             @test AOC21.Day7.part1(input) == result_1
