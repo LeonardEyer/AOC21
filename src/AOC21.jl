@@ -6,4 +6,5 @@ module AOC21
     include("Day 5/main.jl")
     include("Day 6/main.jl")
     include("Day 7/main.jl")
+    include("Day 8/main.jl")
 end
