@@ -1,7 +1,4 @@
 module Day9
-
-    using PyPlot
-
     function parse_input(input)
         return reduce(hcat, map(x -> map(y -> parse(Int, y), collect(x)), split(input, "\n")))'
     end
