@@ -75,6 +75,7 @@ module Day9
         # This will be used to look 1 unit around our current value
         I1 = oneunit(Ifirst)
 
+        # This is where we collect the sizes of all basins
         basin_sizes = []
 
         # This is were we accumulate risk values
