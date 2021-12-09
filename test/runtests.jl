@@ -144,4 +144,21 @@ using Test
             #@test AOC21.Day8.part2(input) == result_2
         end
     end
+
+    @testset "Day9" begin
+        input = "2199943210
+        3987894921
+        9856789892
+        8767896789
+        9899965678"
+        result_1 = 15
+        result_2 = NaN
+
+        @testset "Part 1" begin
+            #@test AOC21.Day9.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day9.part2(input) == result_2
+        end
+    end
 end
