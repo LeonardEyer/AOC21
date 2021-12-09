@@ -9,12 +9,20 @@ module Day9
 
         R = CartesianIndices(A)
         Ifirst, Ilast = first(R), last(R)
+
+        # This will be used to look 1 unit around our current value
         I1 = oneunit(Ifirst)
 
         out = 0
         for I in R
+            # Define a window (respecting the boundary)
             window = (max(Ifirst, I-I1):min(Ilast, I+I1))
-            if (sum(A[I] .< A[window]) + 1) / length(window) == 1.0
+
+            # Find all values that are smaller than the current one within the window
+            values_smaller = A[I] .< A[window]
+
+            # If all values are smaller then we can log the risk level
+            if ((sum(values_smaller) + 1) / length(window)) == 1.0
                 risk_level = A[I] + 1
                 out += risk_level
             end
