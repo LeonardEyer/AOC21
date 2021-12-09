@@ -104,8 +104,8 @@ module Day5
             plotline(l, grid)
         end        
 
-        imshow(transpose(grid))
-        colorbar()
+        #imshow(transpose(grid))
+        #colorbar()
 
         # Return the sum of grid points with intersection records >= 2
         return sum(grid .>= 2)
@@ -124,8 +124,8 @@ module Day5
             plotline(l, grid)
         end        
 
-        imshow(transpose(grid))
-        colorbar()
+        #imshow(transpose(grid))
+        #colorbar()
         # Return the sum of grid points with intersection records >= 2
         return sum(grid .>= 2)
 

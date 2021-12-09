@@ -152,13 +152,13 @@ using Test
         8767896789
         9899965678"
         result_1 = 15
-        result_2 = NaN
+        result_2 = 1134
 
         @testset "Part 1" begin
-            #@test AOC21.Day9.part1(input) == result_1
+            @test AOC21.Day9.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day9.part2(input) == result_2
+            @test AOC21.Day9.part2(input) == result_2
         end
     end
 end
