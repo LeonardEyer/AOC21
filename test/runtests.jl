@@ -106,7 +106,7 @@ using Test
             @test AOC21.Day6.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day6.part2(input) == result_2
+            @test AOC21.Day6.part2(input) == result_2
         end
     end
 
