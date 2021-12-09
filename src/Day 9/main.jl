@@ -85,7 +85,7 @@ module Day9
             # Find all values that are smaller than the current one within the window
             values_smaller = A[I] .< A[window]
 
-            # If all values are smaller then we can ....
+            # If all values are smaller then we can explore the basin around it
             if ((sum(values_smaller) + 1) / length(window)) == 1.0
                 explored = explore_basin(I, [Ifirst, Ilast], A)
                 push!(basin_sizes, length(explored))
