@@ -135,7 +135,7 @@ using Test
         egadfb cdbfeg cegd fecab cgb gbdefca cg fgcdab egfdb bfceg | gbdfcae bgc cg cgb
         gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce"
         result_1 = 26
-        result_2 = 5
+        result_2 = 61229
 
         @testset "Part 1" begin
             @test AOC21.Day8.part1(input) == result_1

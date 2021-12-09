@@ -1,4 +1,28 @@
 module Day8
+    using LinearAlgebra
+
+    segment_digit_map = [
+        1 1 1 0 1 1 1;
+        0 0 1 0 0 1 0;
+        1 0 1 1 1 0 1;
+        1 0 1 1 0 1 1;
+        0 1 1 1 0 1 0;
+        1 1 0 1 0 1 1;
+        1 1 0 1 1 1 1;
+        1 0 1 0 0 1 0;
+        1 1 1 1 1 1 1;
+    ]
+
+    test_mix = [
+        0 0 1 0 0 0 0;
+        0 0 0 0 0 1 0;
+        0 0 0 0 0 0 1;
+        1 0 0 0 0 0 0;
+        0 1 0 0 0 0 0;
+        0 0 0 1 0 0 0;
+        0 0 0 0 1 0 0;
+    ]
+
     function parse_input(input)
         return map(x -> map(x -> split(x, " "), split(x, " | ")), map(strip, split(input, "\n")))
     end
@@ -9,6 +33,25 @@ module Day8
 
     function part2(input)
         input = parse_input(input)
+        display(segment_digit_map)
+        mixed = segment_digit_map * test_mix'
 
+        display(test_mix')
+
+
+        A = segment_digit_map[[1, 4, 7, 8] .+ 1, :]
+        b = mixed[[1, 4, 7, 8] .+ 1, :]
+        println("A")
+        display(A)
+        println("b")
+        display(b)
+
+        println(mapslices(sum, mixed, dims=[1]))
+        println(mapslices(sum, segment_digit_map, dims=[1]))
+
+        x = A \ b
+
+        println("x")
+        display(x)
     end
 end
