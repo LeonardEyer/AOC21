@@ -37,30 +37,29 @@ module Day9
         return risk_level_sum
     end
 
-
-
-    function find_new_basins(start, window, A)
-
-        explored = []
-        exploring_queue = [start]
-
-        I = start
-        while !isempty(exploring_queue)
-            I = pop!(exploring_queue)
-            window = (max(Ifirst, I-I1):min(Ilast, I+I1))
-            for p in window
-                if (p < 9) && ! (p in explored)
-                    push!(exploring_queue, p)
-                end
-            end
-            push!(explored, p)
-        end
-    end
-
     function make_cross_window(index, bounds)
         cross = [CartesianIndex(1, 0) CartesianIndex(0, 1) CartesianIndex(-1, 0) CartesianIndex(0 ,-1)]
         pos = [index + x for x in cross]
         return filter(x -> all(Tuple(bounds[1]) .<= Tuple(x) .<= Tuple(bounds[2])), pos)
+    end
+
+    function explore_basin(start, bounds, A)
+        explored = CartesianIndex[]
+        exploring_queue = CartesianIndex[start]
+
+        while !isempty(exploring_queue)
+
+            I = pop!(exploring_queue)
+            window = make_cross_window(I, bounds)
+
+            for p in window
+                if (A[p] .< 9) && ! (p in explored) && ! (p in exploring_queue)
+                    push!(exploring_queue, p)
+                end
+            end
+            push!(explored, I)
+        end
+        return explored
     end
 
     function part2(input)
@@ -88,20 +87,7 @@ module Day9
 
             # If all values are smaller then we can ....
             if ((sum(values_smaller) + 1) / length(window)) == 1.0
-                explored = CartesianIndex[]
-                exploring_queue = CartesianIndex[I]
-
-                while !isempty(exploring_queue)
-                    I = pop!(exploring_queue)
-                    window = make_cross_window(I, [Ifirst, Ilast])
-                    #display(window)
-                    for p in window
-                        if (A[p] .< 9) && ! (p in explored) && ! (p in exploring_queue)
-                            push!(exploring_queue, p)
-                        end
-                    end
-                    push!(explored, I)
-                end
+                explored = explore_basin(I, [Ifirst, Ilast], A)
                 push!(basin_sizes, length(explored))
             end
         end
