@@ -1,5 +1,6 @@
 module Day8
     using LinearAlgebra
+    using PyPlot
 
     segment_digit_map = [
         1 1 1 0 1 1 1;
@@ -42,16 +43,10 @@ module Day8
         A = segment_digit_map[[1, 4, 7, 8] .+ 1, :]
         b = mixed[[1, 4, 7, 8] .+ 1, :]
         println("A")
-        display(A)
+        #display(A)
         println("b")
-        display(b)
+        #display(b)
 
-        println(mapslices(sum, mixed, dims=[1]))
-        println(mapslices(sum, segment_digit_map, dims=[1]))
-
-        x = A \ b
-
-        println("x")
-        display(x)
+        #imshow(segment_digit_map)
     end
 end
