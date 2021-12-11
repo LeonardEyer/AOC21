@@ -161,4 +161,26 @@ using Test
             @test AOC21.Day9.part2(input) == result_2
         end
     end
+
+    @testset "Day10" begin
+        input = "[({(<(())[]>[[{[]{<()<>>
+[(()[<>])]({[<{<<[]>>(
+{([(<{}[<>[]}>{[]{[(<()>
+(((({<>}<{<{<>}{[]{[]{}
+[[<[([]))<([[{}[[()]]]
+[{[{({}]{}}([{[{{{}}([]
+{<[[]]>}<{[{[{[]{()[[[]
+[<(<(<(<{}))><([]([]()
+<{([([[(<>()){}]>(<<{{
+<{([{{}}[<[[[<>{}]]]>[]]"
+        result_1 = 26397
+        result_2 = 288957
+
+        @testset "Part 1" begin
+            @test AOC21.Day10.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            @test AOC21.Day10.part2(input) == result_2
+        end
+    end
 end
