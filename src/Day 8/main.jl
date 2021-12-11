@@ -1,6 +1,5 @@
 module Day8
     using LinearAlgebra
-    using PyPlot
 
     segment_digit_map = [
         1 1 1 0 1 1 1;
