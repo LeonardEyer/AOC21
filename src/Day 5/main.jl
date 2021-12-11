@@ -1,6 +1,5 @@
 module Day5
     using LinearAlgebra
-    using PyPlot
 
     struct Line
         from :: Vector
