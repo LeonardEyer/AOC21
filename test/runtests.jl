@@ -185,15 +185,24 @@ using Test
     end
     
     @testset "Day11" begin
-        input = ""
-        result_1 = -1
-        result_2 = -1
+        input = "5483143223
+2745854711
+5264556173
+6141336146
+6357385478
+4167524645
+2176841721
+6882881134
+4846848554
+5283751526"
+        result_1 = 1656
+        result_2 = 195
 
         @testset "Part 1" begin
-            #@test AOC21.Day11.part1(input) == result_1
+            @test AOC21.Day11.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day11.part2(input) == result_2
+            @test AOC21.Day11.part2(input) == result_2
         end
     end
 end
