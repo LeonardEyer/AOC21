@@ -215,10 +215,10 @@ b-d
 A-end
 b-end"
         result_1 = 10
-        result_2 = -1
+        result_2 = 103
 
         @testset "Part 1" begin
-            #@test AOC21.Day12.part1(input) == result_1
+            @test AOC21.Day12.part1(input) == result_1
         end
         @testset "Part 2" begin
             #@test AOC21.Day11.part2(input) == result_2
