@@ -10,4 +10,5 @@ module AOC21
     include("Day 09/main.jl")
     include("Day 10/main.jl")
     include("Day 11/main.jl")
+    include("Day 12/main.jl")
 end
