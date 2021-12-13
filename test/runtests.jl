@@ -224,4 +224,37 @@ b-end"
             #@test AOC21.Day11.part2(input) == result_2
         end
     end
+
+    @testset "Day13" begin
+        input = "6,10
+0,14
+9,10
+0,3
+10,4
+4,11
+6,0
+6,12
+4,1
+0,13
+10,12
+3,4
+3,0
+8,4
+1,10
+2,14
+8,10
+9,0
+
+fold along y=7
+fold along x=5"
+        result_1 = -1
+        result_2 = -1
+
+        @testset "Part 1" begin
+            @test AOC21.Day13.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day13.part2(input) == result_2
+        end
+    end
 end
