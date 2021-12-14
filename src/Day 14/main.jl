@@ -23,7 +23,7 @@ module Day14
         template, insertions = parse_input(input)
 
         polymer = template
-        for step = 1:10
+        for step = 1:40
             new_polymer = ""
             for (i, x) in enumerate(polymer[1:end-1])
                 pair = polymer[i:i+1]
@@ -35,6 +35,7 @@ module Day14
                 
             end
             polymer = new_polymer
+            println(counter(polymer))
         end
         counts = counter(polymer)
 
@@ -45,5 +46,22 @@ module Day14
     function part2(input::String)
         template, insertions = parse_input(input)
 
+    end
+
+    function find_fixpoint(start, insertions)
+        history = String[]
+        curr = start
+        fixpoint = ""
+        while true
+            if (curr in history) 
+                fixpoint = curr
+                break
+            end
+            next = generate_replacement(curr, insertions)[1:end-1]
+            push!(history, curr)
+            curr = next
+        end
+
+        return history, fixpoint
     end
 end
