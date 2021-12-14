@@ -247,7 +247,7 @@ b-end"
 
 fold along y=7
 fold along x=5"
-        result_1 = -1
+        result_1 = 17
         result_2 = -1
 
         @testset "Part 1" begin
