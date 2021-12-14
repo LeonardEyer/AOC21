@@ -281,7 +281,7 @@ CN -> C"
         result_2 = -1
 
         @testset "Part 1" begin
-            #@test AOC21.Day14.part1(input) == result_1
+            @test AOC21.Day14.part1(input) == result_1
         end
         @testset "Part 2" begin
             #@test AOC21.Day14.part2(input) == result_2
