@@ -278,13 +278,13 @@ BC -> B
 CC -> N
 CN -> C"
         result_1 = 1588
-        result_2 = -1
+        result_2 = 2188189693529
 
         @testset "Part 1" begin
             @test AOC21.Day14.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day14.part2(input) == result_2
+            @test AOC21.Day14.part2(input) == result_2
         end
     end
 end

@@ -1,67 +1,79 @@
 module Day14
-    using DataStructures
-
     function parse_input(input::String)
         template, insertion = split(input, "\n\n")
 
         insertions = map(x -> split(x, " -> "), split(insertion, "\n"))
-        insertions = map(x -> [x[1], "$(x[1][1])$(x[2])$(x[1][2])"], insertions)
+        insertion_dict = Dict((k, ["$(k[1])$(v)", "$(v)$(k[2])"]) for (k, v) in insertions)
 
-        return template, insertions
+        return template, insertion_dict
     end
 
-    function generate_replacement(pair, insertions)
-        insertion = filter(x -> x[1] == pair, insertions)[1]
-        if insertion !== nothing
-            return replace(pair, (insertion[1] => insertion[2]))
-        else
-            println("oo")
+    function generate_map(insertions)
+        pairs = collect(keys(insertions))
+        pair_map = zeros(Bool, (length(insertions), length(insertions)))
+
+        for (i, pair) in enumerate(pairs)
+            for p in insertions[pair]
+                pair_map[i, pairs .== p] .= 1
+            end
         end
+        return pair_map
+    end
+
+    function generate_template_vector(template, insertions)
+        template_vector = zeros(Int, length(insertions))
+        pairs = []
+        for i = 1:length(template)-1
+            push!(pairs, template[i:i+1])
+        end
+        
+        for p in pairs
+            id = findfirst(x -> x == p, collect(keys(insertions)))
+            template_vector[id] += 1
+        end
+        return template_vector'
+    end
+
+    function run_simulation(n_steps, template, insertions)
+        A = generate_map(insertions)
+        b = generate_template_vector(template, insertions)
+        return b * A^n_steps
     end
 
     function part1(input::String)
         template, insertions = parse_input(input)
+        pairs = collect(keys(insertions))
 
-        polymer = template
-        for step = 1:40
-            new_polymer = ""
-            for (i, x) in enumerate(polymer[1:end-1])
-                pair = polymer[i:i+1]
-                if i+1 == length(polymer)
-                    new_polymer *= generate_replacement(pair, insertions)
-                else
-                    new_polymer *= generate_replacement(pair, insertions)[1:end-1]
+        result = run_simulation(10, template, insertions)
+
+        count_dict = Dict((k, 0.) for k in collect(Iterators.flatten(pairs)))
+        for (i, x) in enumerate(result)
+            if x > 0
+                for c in collect(pairs[i])
+                    count_dict[c] += 0.5 * x
                 end
-                
             end
-            polymer = new_polymer
-            println(counter(polymer))
         end
-        counts = counter(polymer)
 
-        return findmax(counts)[1] - findmin(counts)[1]
-        
+        return ceil(Int, findmax(count_dict)[1]) - ceil(Int, findmin(count_dict)[1])
     end
 
     function part2(input::String)
         template, insertions = parse_input(input)
+        pairs = collect(keys(insertions))
 
-    end
+        result = run_simulation(40, template, insertions)
 
-    function find_fixpoint(start, insertions)
-        history = String[]
-        curr = start
-        fixpoint = ""
-        while true
-            if (curr in history) 
-                fixpoint = curr
-                break
+        count_dict = Dict((k, 0.) for k in collect(Iterators.flatten(pairs)))
+        for (i, x) in enumerate(result)
+            if x > 0
+                for c in collect(pairs[i])
+                    count_dict[c] += 0.5 * x
+                end
             end
-            next = generate_replacement(curr, insertions)[1:end-1]
-            push!(history, curr)
-            curr = next
         end
 
-        return history, fixpoint
+        return ceil(Int, findmax(count_dict)[1]) - ceil(Int, findmin(count_dict)[1])
     end
+    
 end
