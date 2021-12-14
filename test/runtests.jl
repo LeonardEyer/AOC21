@@ -257,4 +257,34 @@ fold along x=5"
             #@test AOC21.Day13.part2(input) == result_2
         end
     end
+
+    @testset "Day14" begin
+        input = "NNCB
+
+CH -> B
+HH -> N
+CB -> H
+NH -> C
+HB -> C
+HC -> B
+HN -> C
+NN -> C
+BH -> H
+NC -> B
+NB -> B
+BN -> B
+BB -> N
+BC -> B
+CC -> N
+CN -> C"
+        result_1 = 1588
+        result_2 = -1
+
+        @testset "Part 1" begin
+            #@test AOC21.Day14.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day14.part2(input) == result_2
+        end
+    end
 end
