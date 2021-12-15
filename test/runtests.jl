@@ -289,12 +289,21 @@ CN -> C"
     end
 
     @testset "Day15" begin
-        input = ""
-        result_1 = -1
+        input = "1163751742
+1381373672
+2136511328
+3694931569
+7463417111
+1319128137
+1359912421
+3125421639
+1293138521
+2311944581"
+        result_1 = 40
         result_2 = -1
 
         @testset "Part 1" begin
-            #@test AOC21.Day15.part1(input) == result_1
+            @test AOC21.Day15.part1(input) == result_1
         end
         @testset "Part 2" begin
             #@test AOC21.Day15.part2(input) == result_2
