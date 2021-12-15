@@ -287,4 +287,17 @@ CN -> C"
             @test AOC21.Day14.part2(input) == result_2
         end
     end
+
+    @testset "Day15" begin
+        input = ""
+        result_1 = -1
+        result_2 = -1
+
+        @testset "Part 1" begin
+            #@test AOC21.Day15.part1(input) == result_1
+        end
+        @testset "Part 2" begin
+            #@test AOC21.Day15.part2(input) == result_2
+        end
+    end
 end
