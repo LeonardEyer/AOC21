@@ -1,5 +1,4 @@
 module Day15
-
     using DataStructures
 
     struct InfinityInteger <: Integer end
@@ -7,7 +6,7 @@ module Day15
 
     mutable struct GraphNode
         index::CartesianIndex
-        distance::Float16
+        distance::Float64
         prev::Union{Nothing, GraphNode}
     end
 
@@ -41,10 +40,43 @@ module Day15
     end
 
     function parse_input(input::String)
-        distances = hcat(map(x -> parse.(Int, x), map(collect, split(input, "\n")))...)
+        distances = hcat(map(x -> parse.(Int, x), map(collect, split(input, "\n")))...)'
 
         # Construct graph of nodes
         nodes = Matrix{GraphNode}(undef, size(distances))
+        for idx in CartesianIndices(distances)
+            nodes[idx] = GraphNode(idx)
+        end
+
+        # Make graph
+        G = Graph(nodes, distances)
+        return G
+    end
+
+
+    function parse_input_2(input::String)
+        distances = hcat(map(x -> parse.(Int, x), map(collect, split(input, "\n")))...)'
+
+        # Repeat 4 times along x and y dimension
+        new_distances = copy(distances)
+        next = copy(distances)
+        for i = 1:4
+            next = (next .+ 1) .% 10
+            next[next .== 0] .= 1
+            new_distances = hcat(new_distances, next)
+        end
+
+        next = copy(new_distances)
+        for i = 1:4
+            next = (next .+ 1) .% 10
+            next[next .== 0] .= 1
+            new_distances = vcat(new_distances, next)
+        end
+        distances = new_distances[:,:]
+        
+        # Construct graph of nodes
+        nodes = Matrix{GraphNode}(undef, size(distances))
+
         for idx in CartesianIndices(distances)
             nodes[idx] = GraphNode(idx)
         end
@@ -85,11 +117,12 @@ module Day15
     function part1(input::String)
         G = parse_input(input)
         result = djikstra(G, G.nodes[1, 1], G.nodes[end, end])
-
         return result.distance
     end
 
     function part2(input::String)
-        G = parse_input(input)
+        G = parse_input_2(input)
+        result = djikstra(G, G.nodes[1, 1], G.nodes[end, end])
+        return result.distance
     end
 end

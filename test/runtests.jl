@@ -300,13 +300,13 @@ CN -> C"
 1293138521
 2311944581"
         result_1 = 40
-        result_2 = -1
+        result_2 = 315
 
         @testset "Part 1" begin
             @test AOC21.Day15.part1(input) == result_1
         end
         @testset "Part 2" begin
-            #@test AOC21.Day15.part2(input) == result_2
+            @test AOC21.Day15.part2(input) == result_2
         end
     end
 end
