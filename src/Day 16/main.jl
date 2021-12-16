@@ -138,7 +138,7 @@ module Day16
 
     function part1(input::String)
         packets = parse_input(input)
-        return Int64(version_sum(packets))
+        return Int(version_sum(packets))
     end
 
     function part2(input::String)
