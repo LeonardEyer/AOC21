@@ -311,12 +311,12 @@ CN -> C"
     end
 
     @testset "Day16" begin
-        input = ""
-        result_1 = -1
+        input_1 = "A0016C880162017C3686B18A3D4780"
+        result_1 = 31
         result_2 = -1
 
         @testset "Part 1" begin
-            #@test AOC21.Day16.part1(input) == result_1
+            @test AOC21.Day16.part1(input_1) == result_1
         end
         @testset "Part 2" begin
             #@test AOC21.Day16.part2(input) == result_2
